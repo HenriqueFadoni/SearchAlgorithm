@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Title from '../../components/Title';
+
 const LinearSearch: React.FC = () => (
   <div>
-    LinearSearch
+    <Title title='Linear Search'/>
   </div>
 )
 
