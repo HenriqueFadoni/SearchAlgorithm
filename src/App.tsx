@@ -1,17 +1,19 @@
 import React from 'react';
 import {
-	Route,
-	Switch
+  Route,
+  Switch
 } from 'react-router-dom';
 
-import BiSearch from './components/LinearSearch/LinearSearch';
 import LinearSearch from './components/LinearSearch/LinearSearch';
+import BiSearch from './components/BiSearch/BiSearch';
+import Menu from './components/Menu/Menu';
 
 const App: React.FC = () => (
   <div className="App">
+    <Menu />
     <Switch>
-      <Route path="/" component={LinearSearch} exact />
-      <Route path="/binary-search" component={BiSearch} />
+      <Route path="/linearsearch" component={LinearSearch} />
+      <Route path="/binarysearch" component={BiSearch} />
     </Switch>
   </div>
 );
