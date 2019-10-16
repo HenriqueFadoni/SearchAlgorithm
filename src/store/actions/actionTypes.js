@@ -1,1 +1,2 @@
+export const GENERATE_GRID = 'GENERATE_GRID';
 export const CHANGE_GRID_SIZE = 'CHANGE_GRID_SIZE';

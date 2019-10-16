@@ -14,6 +14,7 @@ const GridSize: React.FC = () => {
 
   const onClickHandler = (id: string) => {
     dispatch(actions.changeGridSize(id));
+    dispatch(actions.generateGrid())
   }
 
   const optionList = options.map((option, index) => (
