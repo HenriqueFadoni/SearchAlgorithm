@@ -5,18 +5,23 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 
-// import { rootReducer } from './store/reducers/reducer';
+import reducer from './store/reducers/reducer';
 
-// const store = createStore(rootReducer);
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  reducer,
+  composeEnhancers()
+);
 
 const app = (
-  // <Provider store={store}>
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  // </Provider>
+  </Provider>
 );
 
 ReactDOM.render(app, document.getElementById('root'));

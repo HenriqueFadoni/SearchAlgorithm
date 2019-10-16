@@ -1,0 +1,3 @@
+export {
+  changeGridSize
+} from './actions';
