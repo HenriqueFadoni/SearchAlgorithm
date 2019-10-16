@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Title from '../../components/Title';
+import Title from '../../components/Title/Title';
 import GridSizeBtn from '../../components/GridSizeOptions/GridSizeOptions';
 
 const LinearSearch: React.FC = () => (
