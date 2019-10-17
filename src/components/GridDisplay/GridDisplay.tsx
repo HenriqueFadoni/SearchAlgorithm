@@ -6,32 +6,15 @@ const GridDisplay: React.FC = () => {
   let gridDisplay = [];
 
   if (numList.length > 0) {
-    gridDisplay = numList.map((row: Array<number>, i: number) => {
-      const x = row.map((num, index) => (
-        <li
-          className="col"
-          key={index}
-        >
-          {num}
-        </li>
-
-      ))
-
-      return (
-        <ul
-          className="row"
-          key={i}
-        >
-          {x}
-        </ul>
-      )
+    gridDisplay = numList.map((num: Array<number>, i: number) => {
+      return <li className="grid__item" key={i}>{num}</li>
     });
   }
 
   return (
-    <div className="container">
+    <ul className="grid__container">
       {gridDisplay}
-    </div>
+    </ul>
   )
 }
 

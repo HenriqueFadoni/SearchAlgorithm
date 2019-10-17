@@ -2,25 +2,19 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   grid: [],
-  gridSize: { width: 10, height: 5 }
+  gridSize: 50
 }
 
 const generateGrid = state => {
-  const columnArray = [];
-  
-  while (columnArray.length < state.gridSize.height) {
-    const rowArray = [];
+  const gridArray = [];
 
-    while (rowArray.length < state.gridSize.width) {
-      rowArray.push(Math.round(Math.random() * 1000));
-    }
-
-    columnArray.push(rowArray);
+  while (gridArray.length < state.gridSize) {
+    gridArray.push(Math.round(Math.random() * 1000));
   }
   
   return {
     ...state,
-    grid: columnArray
+    grid: gridArray
   }
 }
 
@@ -29,17 +23,17 @@ const changeGridSize = (state, action) => {
     case '0': 
       return {
         ...state,
-        gridSize: { width: 10, height: 5 }
+        gridSize: 10
       };
     case '1': 
       return {
         ...state,
-        gridSize: { width: 10, height: 10 }
+        gridSize: 50
       };
     case '2': 
       return {
         ...state,
-        gridSize: { width: 15, height: 20 }
+        gridSize: 150
       };
     default: return state;
   }

@@ -5,7 +5,7 @@ import GridSizeBtn from '../../components/GridSizeOptions/GridSizeOptions';
 import GridDisplay from '../../components/GridDisplay/GridDisplay';
 
 const LinearSearch: React.FC = () => (
-  <div>
+  <div className="page">
     <Title title='Linear Search'/>
     <GridSizeBtn />
     <GridDisplay />
