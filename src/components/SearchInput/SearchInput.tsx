@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import useDebounce from '../../hooks/useDebounce';
+import { searchElement, linearSearch } from '../../store/actions/index';
 
 const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [isSearching, setIsSearching] = useState(false);
-  
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const dispatch = useDispatch();
 
-  const searchDispatch = async() => {
-    setIsSearching(false);
+  const debouncedSearchTerm = useDebounce(searchTerm);
+
+  const searchDispatch = () => {
+    dispatch(searchElement(debouncedSearchTerm));
+    dispatch(linearSearch());
   }
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      setIsSearching(true);
       searchDispatch();
     }
   }, [debouncedSearchTerm]);
@@ -29,7 +32,6 @@ const SearchInput: React.FC = () => {
           onChange={e => setSearchTerm(e.target.value)}
         />
       </div>
-      {isSearching && <h3>Searching...</h3>}
     </div>
   )
 }
