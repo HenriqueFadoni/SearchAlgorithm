@@ -1,14 +1,16 @@
 import React from 'react';
 
 import Title from '../../components/Title/Title';
-import GridSizeBtn from '../../components/GridSizeOptions/GridSizeOptions';
+import GridSizeOptions from '../../components/GridSizeOptions/GridSizeOptions';
 import GridDisplay from '../../components/GridDisplay/GridDisplay';
+import SearchInput from '../../components/SearchInput/SearchInput';
 
 const LinearSearch: React.FC = () => (
   <div className="page">
     <Title title='Linear Search'/>
-    <GridSizeBtn />
+    <GridSizeOptions />
     <GridDisplay />
+    <SearchInput />
   </div>
 )
 

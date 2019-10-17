@@ -6,7 +6,7 @@ const GridDisplay: React.FC = () => {
   let gridDisplay = [];
 
   if (numList.length > 0) {
-    gridDisplay = numList.map((num: Array<number>, i: number) => {
+    gridDisplay = numList.map((num: number, i: number) => {
       return <li className="grid__item" key={i}>{num}</li>
     });
   }
