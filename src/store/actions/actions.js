@@ -54,7 +54,7 @@ export const linearSearch = () => {
               indexFound: i
             }));
           }
-        }, 200 * i)
+        }, 100 * i)
       })(i);
     }
   }

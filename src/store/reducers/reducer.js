@@ -6,7 +6,7 @@ const initialState = {
   searchingNum: null,
   currentIndex: null,
   valueFound: [],
-  isSearching: false,
+  isSearching: false
 }
 
 const generateGrid = state => {
@@ -18,7 +18,11 @@ const generateGrid = state => {
 
   return {
     ...state,
-    grid: gridArray
+    grid: gridArray,
+    searchingNum: null,
+    currentIndex: null,
+    valueFound: [],
+    isSearching: false
   }
 }
 
