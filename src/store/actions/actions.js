@@ -54,8 +54,18 @@ export const linearSearch = () => {
               indexFound: i
             }));
           }
+          
+          // if (i === grid.length - 1) {
+          //   dispatch(linearSearchFinished());
+          // }
         }, 100 * i)
       })(i);
     }
+  }
+}
+
+export const linearSearchReset = () => {
+  return {
+    type: actionTypes.LINEAR_SEARCH_RESET
   }
 }

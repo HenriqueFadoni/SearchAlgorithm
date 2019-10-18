@@ -2,5 +2,6 @@ export {
   generateGrid,
   changeGridSize,
   searchElement,
-  linearSearch
+  linearSearch,
+  linearSearchReset
 } from './actions';

@@ -72,6 +72,16 @@ const linearSearchValueFound = (state, { payload }) => {
   }
 }
 
+const linearSearchReset = state => {
+  return {
+    ...state,
+    searchingNum: null,
+    currentIndex: null,
+    valueFound: [],
+    isSearching: false
+  }
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GENERATE_GRID: return generateGrid(state);
@@ -79,6 +89,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SEARCH_ELEMENT: return searchElement(state, action);
     case actionTypes.LINEAR_SEARCH_CURRENT_VALUE: return linearSearchCurrentIndex(state, action);
     case actionTypes.LINEAR_SEARCH_VALUE_FOUND: return linearSearchValueFound(state, action);
+    case actionTypes.LINEAR_SEARCH_RESET: return linearSearchReset(state);
     default: return state;
   }
 }

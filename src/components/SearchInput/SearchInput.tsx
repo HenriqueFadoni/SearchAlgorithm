@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import useDebounce from '../../hooks/useDebounce';
-import { searchElement, linearSearch } from '../../store/actions/index';
+import { searchElement, linearSearch, linearSearchReset } from '../../store/actions/index';
+
+import ResetBtn from './ResetBtn/ResetBtn';
 
 const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const dispatch = useDispatch();
+  const currentIndex = useSelector((state: any) => state.currentIndex);
+  const grid = useSelector((state: any) => state.grid);
 
+  const dispatch = useDispatch();
   const debouncedSearchTerm = useDebounce(searchTerm);
 
   const searchDispatch = () => {
@@ -21,6 +25,10 @@ const SearchInput: React.FC = () => {
     }
   }, [debouncedSearchTerm]);
 
+  const searchReset = () => {
+    dispatch(linearSearchReset())
+  }
+
   return (
     <div className="d-flex justify-content-center">
       <div className="search-input">
@@ -32,6 +40,7 @@ const SearchInput: React.FC = () => {
           onChange={e => setSearchTerm(e.target.value)}
         />
       </div>
+      {grid.length -1 === currentIndex && <ResetBtn searchReset={searchReset} />}
     </div>
   )
 }
