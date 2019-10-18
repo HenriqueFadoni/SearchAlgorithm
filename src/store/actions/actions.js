@@ -43,15 +43,19 @@ export const linearSearch = () => {
     const { grid, searchingNum } = getState();
 
     for (let i = 0; i < grid.length; i++) {
-      dispatch(linearSearchCurrentValue({
-        currentIndex: i
-      }));
+      (function (i) {
+        setTimeout(() => {
+          dispatch(linearSearchCurrentValue({
+            currentIndex: i
+          }));
 
-      if (searchingNum === grid[i]) {
-        dispatch(linearSearchValueFound({
-          indexFound: i
-        }));
-      }
+          if (searchingNum === grid[i]) {
+            dispatch(linearSearchValueFound({
+              indexFound: i
+            }));
+          }
+        }, 200 * i)
+      })(i);
     }
   }
 }
