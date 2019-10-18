@@ -1,25 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-export const generateGrid = () => {
-  return {
-    type: actionTypes.GENERATE_GRID
-  }
-}
-
-export const changeGridSize = size => {
-  return {
-    type: actionTypes.CHANGE_GRID_SIZE,
-    size
-  }
-}
-
-export const searchElement = value => {
-  return {
-    type: actionTypes.SEARCH_ELEMENT,
-    value
-  }
-}
-
+// Searching for Items with Linear Search Algorithm
 const linearSearchCurrentValue = ({ currentIndex }) => {
   return {
     type: actionTypes.LINEAR_SEARCH_CURRENT_VALUE,
@@ -54,16 +35,13 @@ export const linearSearch = () => {
               indexFound: i
             }));
           }
-          
-          // if (i === grid.length - 1) {
-          //   dispatch(linearSearchFinished());
-          // }
         }, 100 * i)
       })(i);
     }
   }
 }
 
+// Reseting the Linear Search Algorithm
 export const linearSearchReset = () => {
   return {
     type: actionTypes.LINEAR_SEARCH_RESET

@@ -1,7 +1,10 @@
 export {
   generateGrid,
   changeGridSize,
-  searchElement,
+  searchElement
+} from './gridAction';
+
+export {
   linearSearch,
   linearSearchReset
-} from './actions';
+} from './linearSearchAction';
