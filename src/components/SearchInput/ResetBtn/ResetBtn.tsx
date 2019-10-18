@@ -4,7 +4,7 @@ interface ResetBtnProps {
   searchReset: () => void
 }
 
-const ResetBtnProps: React.FC<ResetBtnProps> = ({ searchReset }) => (
+const ResetBtn: React.FC<ResetBtnProps> = ({ searchReset }) => (
   <button
     type="button"
     className="btn btn-danger ml-3"
@@ -14,4 +14,4 @@ const ResetBtnProps: React.FC<ResetBtnProps> = ({ searchReset }) => (
   </button>
 )
 
-export default ResetBtnProps;
+export default ResetBtn;
