@@ -5,8 +5,9 @@ import useDebounce from '../../hooks/useDebounce';
 import { searchElement, linearSearch, linearSearchReset } from '../../store/actions/index';
 
 import ResetBtn from './ResetBtn/ResetBtn';
+import SearchInput from './SearchInput/SearchInput';
 
-const SearchInput: React.FC = () => {
+const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const currentIndex = useSelector((state: any) => state.currentIndex);
   const grid = useSelector((state: any) => state.grid);
@@ -31,18 +32,15 @@ const SearchInput: React.FC = () => {
 
   return (
     <div className="d-flex justify-content-center">
-      <div className="search-input">
-        <input
-          type="text"
-          className="form-control"
-          id="searchInput"
-          placeholder="Search"
-          onChange={e => setSearchTerm(e.target.value)}
-        />
-      </div>
-      {grid.length -1 === currentIndex && <ResetBtn searchReset={searchReset} />}
+      <SearchInput 
+        onChangeHandler={e => setSearchTerm(e.target.value)}
+      />
+      <ResetBtn 
+        searchReset={searchReset} 
+        isDisable={grid.length - 1 === currentIndex} 
+      />
     </div>
   )
 }
 
-export default SearchInput;
+export default Search;
