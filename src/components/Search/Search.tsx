@@ -10,6 +10,7 @@ import SearchInput from './SearchInput/SearchInput';
 const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const currentIndex = useSelector((state: any) => state.currentIndex);
+  const isSearching = useSelector((state: any) => state.isSearching);
   const grid = useSelector((state: any) => state.grid);
 
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const Search: React.FC = () => {
     <div className="d-flex justify-content-center">
       <SearchInput 
         onChangeHandler={e => setSearchTerm(e.target.value)}
+        isDisable={isSearching}
       />
       <ResetBtn 
         searchReset={searchReset} 
