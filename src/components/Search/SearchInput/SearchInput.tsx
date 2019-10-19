@@ -13,7 +13,7 @@ const SearchInput: React.FC<searchInputProps> = ({ onChangeHandler, isDisable })
       id="searchInput"
       placeholder="Search"
       onChange={onChangeHandler}
-      disabled={!isDisable}
+      disabled={isDisable}
     />
   </div>
 )

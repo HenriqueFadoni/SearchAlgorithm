@@ -1,11 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index'
 
 import SizeOption from './SizeButtons/SizeOption';
 
 const GridSize: React.FC = () => {
   const dispatch = useDispatch();
+  const isSearching = useSelector((state: any) => state.isSearching);
+
   const options = [
     'Small Grid',
     'Medium Grid',
@@ -13,8 +15,10 @@ const GridSize: React.FC = () => {
   ]
 
   const onClickHandler = (id: string) => {
-    dispatch(actions.changeGridSize(id));
-    dispatch(actions.generateGrid())
+    if (!isSearching) {
+      dispatch(actions.changeGridSize(id));
+      dispatch(actions.generateGrid())
+    }
   }
 
   const optionList = options.map((option, index) => (
@@ -23,6 +27,7 @@ const GridSize: React.FC = () => {
       id={index.toString()}
       title={option}
       onClickHandler={onClickHandler}
+      isDisable={isSearching}
     />
   ))
 

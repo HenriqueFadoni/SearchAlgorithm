@@ -3,12 +3,13 @@ import React from 'react';
 interface SizeOptionProps {
   onClickHandler: ((id: string) => void),
   id: string,
-  title: string
+  title: string,
+  isDisable: boolean
 }
 
-const SizeOption: React.FC<SizeOptionProps> = ({ id, title, onClickHandler }) => (
+const SizeOption: React.FC<SizeOptionProps> = ({ id, title, onClickHandler, isDisable }) => (
   <label
-    className={`btn btn-secondary ${id === '0' && 'active'}`}
+    className={`btn btn-secondary ${id === '0' && 'active'} ${isDisable && 'disabled'}`}
     onClick={() => onClickHandler(id)}
   >
     <input
