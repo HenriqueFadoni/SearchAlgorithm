@@ -1,4 +1,4 @@
-### Search Algorithm
+# Search Algorithm
 
 In this Web Application, you will observe practical models of Linear and Binary Search Algorithm. Additionally, you can interact with the examples to better comprehend how these algorithms work behind the scenes. 
 
@@ -19,4 +19,4 @@ Download the ZIP file in Github. After that, type `npm install` and `npm start` 
 - TypeScript
 - CSS 3
 - SASS
-- BOOTSTRAP
+- BootStrap
