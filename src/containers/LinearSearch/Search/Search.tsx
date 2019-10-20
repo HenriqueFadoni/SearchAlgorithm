@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Hooks and Actions
-import useDebounce from '../../hooks/useDebounce';
-import * as actions from '../../store/actions/index';
+import useDebounce from '../../../hooks/useDebounce';
+import * as actions from '../../../store/actions/index';
 
 // Components
-import ResetBtn from './ResetBtn/ResetBtn';
-import SearchInput from './SearchInput/SearchInput';
+import ResetBtn from '../../../components/ResetBtn/ResetBtn';
+import SearchInput from '../../../components/SearchInput/SearchInput';
 
 const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,7 +32,8 @@ const Search: React.FC = () => {
 
   // Reset Search
   const searchReset = () => {
-    dispatch(actions.linearSearchReset())
+    dispatch(actions.linearSearchReset());
+    setSearchTerm('');
   }
 
   return (

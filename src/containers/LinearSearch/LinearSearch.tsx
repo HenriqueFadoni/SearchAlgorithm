@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Title from '../../components/Title/Title';
 import GridSizeOptions from '../../components/GridSizeOptions/GridSizeOptions';
 import GridDisplay from '../../components/GridDisplay/GridDisplay';
-import Search from '../../components/Search/Search';
+import Search from './Search/Search';
 
 const LinearSearch: React.FC = () => {
   const gridSize = useSelector((state: any) => state.gridSize);
