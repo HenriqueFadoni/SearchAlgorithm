@@ -6,27 +6,29 @@ import SizeOption from './SizeButtons/SizeOption';
 
 const GridSize: React.FC = () => {
   const dispatch = useDispatch();
+  const gridSize = useSelector((state: any) => state.gridSize);
   const isSearching = useSelector((state: any) => state.isSearching);
 
   const options = [
-    'Small Grid',
-    'Medium Grid',
-    'Large Grid'
+    { title: 'Small Grid', size: 10 },
+    { title: 'Medium Grid', size: 50 },
+    { title: 'Large Grid', size: 150 }
   ]
 
-  const onClickHandler = (id: string) => {
+  const onClickHandler = (id: number) => {
     if (!isSearching) {
       dispatch(actions.changeGridSize(id));
       dispatch(actions.generateGrid())
     }
   }
 
-  const optionList = options.map((option, index) => (
+  const optionList = options.map(({ title, size }, index) => (
     <SizeOption
       key={index}
-      id={index.toString()}
-      title={option}
+      id={size}
+      title={title}
       onClickHandler={onClickHandler}
+      gridSize={gridSize}
       isDisable={isSearching}
     />
   ))

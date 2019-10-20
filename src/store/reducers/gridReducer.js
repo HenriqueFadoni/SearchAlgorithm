@@ -17,17 +17,17 @@ export const generateGrid = state => {
 
 export const changeGridSize = (state, { size }) => {
   switch (size) {
-    case '0':
+    case 10:
       return {
         ...state,
         gridSize: 10
       };
-    case '1':
+    case 50:
       return {
         ...state,
         gridSize: 50
       };
-    case '2':
+    case 150:
       return {
         ...state,
         gridSize: 150
