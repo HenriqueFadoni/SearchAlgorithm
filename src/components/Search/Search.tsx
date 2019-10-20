@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Hooks and Actions
-import useDebounce from '../../../hooks/useDebounce';
-import * as actions from '../../../store/actions/index';
+import useDebounce from '../../hooks/useDebounce';
+import * as actions from '../../store/actions/index';
 
 // Components
-import ResetBtn from '../../../components/ResetBtn/ResetBtn';
-import SearchInput from '../../../components/SearchInput/SearchInput';
+import ResetBtn from './ResetBtn/ResetBtn';
+import SearchInput from './SearchInput/SearchInput';
 
-const Search: React.FC = () => {
+interface SearchProps {
+  searchType: string
+}
+
+const Search: React.FC<SearchProps> = ({ searchType }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const grid = useSelector((state: any) => state.grid);
   const currentIndex = useSelector((state: any) => state.currentIndex);
@@ -21,7 +25,7 @@ const Search: React.FC = () => {
   // Debouncing and Search 
   const searchDispatch = () => {
     dispatch(actions.searchElement(debouncedSearchTerm));
-    dispatch(actions.linearSearch());
+    if (searchType === 'linear') dispatch(actions.linearSearch());
   }
 
   useEffect(() => {
@@ -32,7 +36,7 @@ const Search: React.FC = () => {
 
   // Reset Search
   const searchReset = () => {
-    dispatch(actions.linearSearchReset());
+    if (searchType === 'linear') dispatch(actions.linearSearchReset());
     setSearchTerm('');
   }
 
