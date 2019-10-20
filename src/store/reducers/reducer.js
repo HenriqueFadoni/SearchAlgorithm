@@ -14,7 +14,7 @@ import {
 
 const initialState = {
   grid: [],
-  gridSize: 50,
+  gridSize: null,
   searchingNum: null,
   currentIndex: null,
   valueFound: [],

@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+// Hooks and Actions
 import useDebounce from '../../hooks/useDebounce';
-import { searchElement, linearSearch, linearSearchReset } from '../../store/actions/index';
+import * as actions from '../../store/actions/index';
 
+// Components
 import ResetBtn from './ResetBtn/ResetBtn';
 import SearchInput from './SearchInput/SearchInput';
 
 const Search: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const grid = useSelector((state: any) => state.grid);
   const currentIndex = useSelector((state: any) => state.currentIndex);
   const isSearching = useSelector((state: any) => state.isSearching);
-  const grid = useSelector((state: any) => state.grid);
 
   const dispatch = useDispatch();
   const debouncedSearchTerm = useDebounce(searchTerm);
 
+  // Debouncing and Search 
   const searchDispatch = () => {
-    dispatch(searchElement(debouncedSearchTerm));
-    dispatch(linearSearch());
+    dispatch(actions.searchElement(debouncedSearchTerm));
+    dispatch(actions.linearSearch());
   }
 
   useEffect(() => {
@@ -27,8 +30,9 @@ const Search: React.FC = () => {
     }
   }, [debouncedSearchTerm]);
 
+  // Reset Search
   const searchReset = () => {
-    dispatch(linearSearchReset())
+    dispatch(actions.linearSearchReset())
   }
 
   return (
