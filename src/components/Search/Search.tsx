@@ -33,13 +33,14 @@ const Search: React.FC = () => {
 
   return (
     <div className="d-flex justify-content-center">
-      <SearchInput 
+      <SearchInput
+        searchTerm={searchTerm}
         onChangeHandler={e => setSearchTerm(e.target.value)}
         isDisable={isSearching}
       />
-      <ResetBtn 
-        searchReset={searchReset} 
-        isDisable={grid.length - 1 === currentIndex} 
+      <ResetBtn
+        searchReset={searchReset}
+        isDisable={grid.length - 1 === currentIndex}
       />
     </div>
   )

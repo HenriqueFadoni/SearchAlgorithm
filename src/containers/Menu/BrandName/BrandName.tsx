@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const BrandName: React.FC = () => (
   <NavLink
     className="navbar-brand"
-    to="/linearsearch"
+    to="/"
   >
     SearchAlgo
   </NavLink>
