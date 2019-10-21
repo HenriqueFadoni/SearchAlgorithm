@@ -4,6 +4,7 @@ import Title from '../../components/Title/Title';
 import IntroParagraph from './IntroParagraph/IntroParagraph';
 import Subtitle from '../../components/Subtitle/Subtitle';
 import LinearSearchExplanation from './LinearSearchExplanation/LinearSearchExplanation';
+import BinarySearchExplanation from './BinarySearchExplanation/BinarySearchExplanation';
 
 const Index: React.FC = () => (
   <div>
@@ -11,6 +12,8 @@ const Index: React.FC = () => (
     <IntroParagraph />
     <Subtitle subtitle='Linear Search' />
     <LinearSearchExplanation />
+    <Subtitle subtitle='Binary Search' />
+    <BinarySearchExplanation />
   </div>
 );
 
