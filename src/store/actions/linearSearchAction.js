@@ -19,24 +19,33 @@ const linearSearchValueFound = ({ indexFound }) => {
   }
 }
 
+const findValue = ({ i, dispatch, grid, searchingNum }) => {
+  setTimeout(() => {
+    dispatch(linearSearchCurrentValue({
+      currentIndex: i
+    }));
+
+    if (searchingNum === grid[i]) {
+      dispatch(linearSearchValueFound({
+        indexFound: i
+      }));
+    }
+  }, 100 * i)
+}
+
 export const linearSearch = () => {
   return async (dispatch, getState) => {
-    const { grid, searchingNum } = getState();
+    const { grid, searchingNum, repeatItems } = getState();
 
-    for (let i = 0; i < grid.length; i++) {
-      (function (i) {
-        setTimeout(() => {
-          dispatch(linearSearchCurrentValue({
-            currentIndex: i
-          }));
-
-          if (searchingNum === grid[i]) {
-            dispatch(linearSearchValueFound({
-              indexFound: i
-            }));
-          }
-        }, 100 * i)
-      })(i);
+    if (repeatItems) {
+      for (let i = 0; i < grid.length; i++) {
+        findValue({ i, dispatch, grid, searchingNum });
+      }
+    } else {
+      for (let i = 0; i < grid.length; i++) {
+        findValue({ i, dispatch, grid, searchingNum });
+        if (searchingNum === grid[i]) break;
+      }
     }
   }
 }

@@ -15,9 +15,13 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({ searchType }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const grid = useSelector((state: any) => state.grid);
-  const currentIndex = useSelector((state: any) => state.currentIndex);
-  const isSearching = useSelector((state: any) => state.isSearching);
+  const {
+    grid,
+    currentIndex,
+    isSearching,
+    repeatItems,
+    valueFound
+  } = useSelector((state: any) => state);
 
   const dispatch = useDispatch();
   const debouncedSearchTerm = useDebounce(searchTerm);
@@ -49,7 +53,10 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
       />
       <ResetBtn
         searchReset={searchReset}
-        isDisable={grid.length - 1 === currentIndex}
+        isDisable={
+          (grid.length - 1 === currentIndex && repeatItems)
+          || (valueFound.length > 0 && !repeatItems)
+        }
       />
     </div>
   )

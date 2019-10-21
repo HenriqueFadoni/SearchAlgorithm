@@ -1,8 +1,21 @@
 export const generateGrid = state => {
   const gridArray = [];
 
-  while (gridArray.length < state.gridSize) {
-    gridArray.push(Math.round(Math.random() * 1000));
+  if (state.repeatItems) {
+    while (gridArray.length < state.gridSize) {
+      gridArray.push(Math.round(Math.random() * 1000));
+    }
+  } else {
+    const set = new Set();
+    
+    while (gridArray.length < state.gridSize) {
+      const number = Math.round(Math.random() * 1000);
+
+      if (!set.has(number)) {
+        gridArray.push(number);
+        set.add(number);
+      }
+    }
   }
 
   return {
@@ -33,6 +46,13 @@ export const changeGridSize = (state, { size }) => {
         gridSize: 150
       };
     default: return state;
+  }
+}
+
+export const repeatNumberInGrid = (state, { payload }) => {
+  return {
+    ...state,
+    repeatItems: payload.repeatItems
   }
 }
 

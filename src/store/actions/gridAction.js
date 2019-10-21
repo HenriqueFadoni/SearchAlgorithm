@@ -14,6 +14,15 @@ export const changeGridSize = size => {
   }
 }
 
+export const repeatNumberInGrid = repeatItems => {
+  return {
+    type: actionTypes.REPEAT_NUMBER_IN_GRID,
+    payload: {
+      repeatItems
+    }
+  }
+}
+
 // Search Input
 export const searchElement = value => {
   return {

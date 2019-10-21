@@ -1,6 +1,7 @@
 export {
   generateGrid,
   changeGridSize,
+  repeatNumberInGrid,
   searchElement
 } from './gridAction';
 

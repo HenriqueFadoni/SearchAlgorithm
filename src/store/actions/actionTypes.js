@@ -1,6 +1,7 @@
 // Grid Functionality - Action Types
 export const GENERATE_GRID = 'GENERATE_GRID';
 export const CHANGE_GRID_SIZE = 'CHANGE_GRID_SIZE';
+export const REPEAT_NUMBER_IN_GRID = 'REPEAT_NUMBER_IN_GRID';
 export const SEARCH_ELEMENT = 'SEARCH_ELEMENT';
 
 // Linear Search Algorithm - Action Types
