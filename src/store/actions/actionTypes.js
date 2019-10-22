@@ -2,6 +2,7 @@
 export const GENERATE_GRID = 'GENERATE_GRID';
 export const CHANGE_GRID_SIZE = 'CHANGE_GRID_SIZE';
 export const REPEAT_NUMBER_IN_GRID = 'REPEAT_NUMBER_IN_GRID';
+export const SELF_ORGANIZE_DATA = 'SELF_ORGANIZE_DATA';
 export const SEARCH_ELEMENT = 'SEARCH_ELEMENT';
 
 // Linear Search Algorithm - Action Types

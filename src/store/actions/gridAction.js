@@ -7,6 +7,7 @@ export const generateGrid = () => {
   }
 }
 
+// Edit Grid Size
 export const changeGridSize = size => {
   return {
     type: actionTypes.CHANGE_GRID_SIZE,
@@ -14,11 +15,22 @@ export const changeGridSize = size => {
   }
 }
 
+// Repeat Number Option
 export const repeatNumberInGrid = repeatItems => {
   return {
     type: actionTypes.REPEAT_NUMBER_IN_GRID,
     payload: {
       repeatItems
+    }
+  }
+}
+
+// Self-Organizing Data Option
+export const selfOrganizeData = selfOrganize => {
+  return {
+    type: actionTypes.SELF_ORGANIZE_DATA,
+    payload: {
+      selfOrganize
     }
   }
 }

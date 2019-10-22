@@ -53,10 +53,7 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
       />
       <ResetBtn
         searchReset={searchReset}
-        isDisable={
-          (grid.length - 1 === currentIndex && repeatItems)
-          || (valueFound.length > 0 && !repeatItems)
-        }
+        isDisable={(grid.length - 1 === currentIndex && repeatItems)|| (valueFound.length > 0 && !repeatItems)}
       />
     </div>
   )

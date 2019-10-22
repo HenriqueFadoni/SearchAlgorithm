@@ -4,6 +4,7 @@ import {
   generateGrid,
   changeGridSize,
   repeatNumberInGrid,
+  selfOrganizeData,
   searchElement
 } from './gridReducer';
 
@@ -17,9 +18,10 @@ const initialState = {
   grid: [],
   gridSize: null,
   repeatItems: false,
+  selfOrganize: false,
   searchingNum: null,
   currentIndex: null,
-  valueFound: [],
+  valueFound: [], // Index of Values Found
   isSearching: false
 }
 
@@ -28,6 +30,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.GENERATE_GRID: return generateGrid(state);
     case actionTypes.CHANGE_GRID_SIZE: return changeGridSize(state, action);
     case actionTypes.REPEAT_NUMBER_IN_GRID: return repeatNumberInGrid(state, action);
+    case actionTypes.SELF_ORGANIZE_DATA: return selfOrganizeData(state, action);
     case actionTypes.SEARCH_ELEMENT: return searchElement(state, action);
     case actionTypes.LINEAR_SEARCH_CURRENT_VALUE: return linearSearchCurrentIndex(state, action);
     case actionTypes.LINEAR_SEARCH_VALUE_FOUND: return linearSearchValueFound(state, action);

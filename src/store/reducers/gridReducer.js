@@ -7,7 +7,7 @@ export const generateGrid = state => {
     }
   } else {
     const set = new Set();
-    
+
     while (gridArray.length < state.gridSize) {
       const number = Math.round(Math.random() * 1000);
 
@@ -53,6 +53,13 @@ export const repeatNumberInGrid = (state, { payload }) => {
   return {
     ...state,
     repeatItems: payload.repeatItems
+  }
+}
+
+export const selfOrganizeData = (state, { payload }) => {
+  return {
+    ...state,
+    selfOrganize: payload.selfOrganize
   }
 }
 

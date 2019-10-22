@@ -2,6 +2,7 @@ export {
   generateGrid,
   changeGridSize,
   repeatNumberInGrid,
+  selfOrganizeData,
   searchElement
 } from './gridAction';
 

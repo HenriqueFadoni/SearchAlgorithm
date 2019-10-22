@@ -4,6 +4,7 @@ import * as actions from '../../store/actions/index'
 
 import SizeOption from './SizeButtons/SizeOption';
 import RepeatNumBtn from './RepeatNumBtn/RepeatNumBtn';
+import SelfOrganizeBtn from './SelfOrganizeBtn/SelfOrganizeBtn';
 
 const GridSize: React.FC = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const GridSize: React.FC = () => {
         {optionList}
       </div>
       <RepeatNumBtn />
+      <SelfOrganizeBtn />
     </div>
   )
 }
