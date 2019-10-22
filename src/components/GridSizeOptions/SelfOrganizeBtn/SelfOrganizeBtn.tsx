@@ -1,19 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import * as actions from '../../store/actions/index';
+import * as actions from '../../../store/actions/index';
 
-const SizeOption: React.FC = () => {
-  const { isSearching, repeatItems } = useSelector((state: any) => state);
-  const dispatch = useDispatch();
-
-  const changeHandler = () => {
-    if (!isSearching) {
-      dispatch(actions.repeatNumberInGrid(!repeatItems));
-      dispatch(actions.generateGrid());
-    }
-  }
-
+const SelfOrganizeBtn: React.FC = () => {
   return (
     <div
       className="btn-group-toggle ml-4"
@@ -32,4 +22,4 @@ const SizeOption: React.FC = () => {
   )
 }
 
-export default SizeOption;
+export default SelfOrganizeBtn;

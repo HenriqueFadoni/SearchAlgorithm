@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index'
 
 import SizeOption from './SizeButtons/SizeOption';
-import RepeatNumBtn from '../../components/RepeatNumBtn/RepeatNumBtn';
+import RepeatNumBtn from './RepeatNumBtn/RepeatNumBtn';
 
 const GridSize: React.FC = () => {
   const dispatch = useDispatch();
