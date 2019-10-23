@@ -3,6 +3,7 @@ export {
   changeGridSize,
   repeatNumberInGrid,
   selfOrganizeData,
+  sortGrid,
   searchElement
 } from './gridAction';
 

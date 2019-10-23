@@ -35,6 +35,36 @@ export const selfOrganizeData = selfOrganize => {
   }
 }
 
+// Sort Grid
+const sortGridDispatch = (grid, sortGrid) => {
+  if (grid.length > 0 && sortGrid) {
+    const newGrid = grid.sort((a, b) => a - b);
+
+    return {
+      type: actionTypes.SORT_GRID,
+      payload: {
+        newGrid,
+        sortGrid
+      }
+    }
+  } else {
+    return {
+      type: actionTypes.SORT_GRID,
+      payload: {
+        sortGrid
+      }
+    }
+  }
+}
+
+export const sortGrid = sortGrid => {
+  return async (dispatch, getState) => {
+    const { grid } = getState();
+    dispatch(sortGridDispatch(grid, sortGrid))
+  }
+}
+
+
 // Search Input
 export const searchElement = value => {
   return {

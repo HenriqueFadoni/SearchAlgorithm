@@ -1,5 +1,5 @@
 export const generateGrid = state => {
-  const gridArray = [];
+  let gridArray = [];
 
   if (state.repeatItems) {
     while (gridArray.length < state.gridSize) {
@@ -16,6 +16,10 @@ export const generateGrid = state => {
         set.add(number);
       }
     }
+  }
+
+  if (state.sortGrid) {
+    gridArray = gridArray.sort((a, b) => a - b);
   }
 
   return {
@@ -60,6 +64,21 @@ export const selfOrganizeData = (state, { payload }) => {
   return {
     ...state,
     selfOrganize: payload.selfOrganize
+  }
+}
+
+export const organizeGrid = (state, { payload }) => {
+  if (payload.newGrid) {
+    return {
+      ...state,
+      grid: payload.newGrid,
+      sortGrid: payload.sortGrid
+    }
+  } else {
+    return {
+      ...state,
+      sortGrid: payload.sortGrid
+    }
   }
 }
 
