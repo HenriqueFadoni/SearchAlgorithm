@@ -68,15 +68,17 @@ export const selfOrganizeData = (state, { payload }) => {
 }
 
 export const organizeGrid = (state, { payload }) => {
-  if (payload.newGrid) {
+  if (payload.newGrid) { //Grid ja chega organizado
     return {
       ...state,
+      unsortedGrid: payload.oldGrid,
       grid: payload.newGrid,
       sortGrid: payload.sortGrid
     }
   } else {
     return {
       ...state,
+      grid: state.unsortedGrid,
       sortGrid: payload.sortGrid
     }
   }

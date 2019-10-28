@@ -17,6 +17,7 @@ import {
 
 const initialState = {
   grid: [],
+  unsortedGrid:[],
   gridSize: null,
   repeatItems: false,
   selfOrganize: false,

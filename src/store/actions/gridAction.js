@@ -38,12 +38,13 @@ export const selfOrganizeData = selfOrganize => {
 // Sort Grid
 const sortGridDispatch = (grid, sortGrid) => {
   if (grid.length > 0 && sortGrid) {
-    const newGrid = grid.sort((a, b) => a - b);
+    const oldGrid = [...grid];
 
     return {
       type: actionTypes.SORT_GRID,
       payload: {
-        newGrid,
+        newGrid: oldGrid.sort((a, b) => a - b),
+        oldGrid: grid,
         sortGrid
       }
     }

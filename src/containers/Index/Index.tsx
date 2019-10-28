@@ -12,6 +12,7 @@ const Index: React.FC = () => (
     <IntroParagraph />
     <Subtitle subtitle='Linear Search' />
     <LinearSearchExplanation />
+    <Subtitle subtitle='Self-Organized Data' />
     <Subtitle subtitle='Binary Search' />
     <BinarySearchExplanation />
   </div>
