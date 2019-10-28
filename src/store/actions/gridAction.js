@@ -65,7 +65,6 @@ export const sortGrid = sortGrid => {
   }
 }
 
-
 // Search Input
 export const searchElement = value => {
   return {
