@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Title from '../../components/Title/Title';
 import GridDisplay from '../../components/GridDisplay/GridDisplay';
-import GridSizeOptions from '../../components/GridSizeOptions/GridSizeOptions';
+import GridOptions from '../../components/GridOptions/GridOptions';
 import Search from '../../components/Search/Search';
 
 const BiSearch: React.FC = () => {
@@ -12,7 +12,7 @@ const BiSearch: React.FC = () => {
   return (
     <div>
       <Title title='Binary Search' />
-      <GridSizeOptions isLinearSearch={false} />
+      <GridOptions isLinearSearch={false} />
       <GridDisplay />
       {gridSize && <Search searchType='binary' />}
     </div>

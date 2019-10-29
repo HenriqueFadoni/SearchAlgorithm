@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Title from '../../components/Title/Title';
 import GridDisplay from '../../components/GridDisplay/GridDisplay';
-import GridSizeOptions from '../../components/GridSizeOptions/GridSizeOptions';
+import GridOptions from '../../components/GridOptions/GridOptions';
 import Search from '../../components/Search/Search';
 
 const LinearSearch: React.FC = () => {
@@ -12,7 +12,7 @@ const LinearSearch: React.FC = () => {
   return (
     <div className="page">
       <Title title='Linear Search' />
-      <GridSizeOptions isLinearSearch={true} />
+      <GridOptions isLinearSearch={true} />
       <GridDisplay />
       {gridSize && <Search searchType='linear' />}
     </div>
