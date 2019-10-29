@@ -5,7 +5,7 @@ interface TitleProps {
 }
 
 const Title: React.FC<TitleProps> = ({ title }) => (
-  <h1 className="display-3 text-center mt-4">
+  <h1 className="display-3 text-white text-center py-4 bg-secondary">
     {title}
   </h1>
 )

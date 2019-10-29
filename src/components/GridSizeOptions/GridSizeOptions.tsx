@@ -7,7 +7,11 @@ import RepeatNumBtn from './RepeatNumBtn/RepeatNumBtn';
 import SelfOrganizeBtn from './SelfOrganizeBtn/SelfOrganizeBtn';
 import SortBtn from './SortBtn/SortBtn';
 
-const GridSize: React.FC = () => {
+interface GridSizeProps {
+  isLinearSearch: boolean
+}
+
+const GridSize: React.FC<GridSizeProps> = ({ isLinearSearch }) => {
   const dispatch = useDispatch();
   const gridSize = useSelector((state: any) => state.gridSize);
   const isSearching = useSelector((state: any) => state.isSearching);
@@ -36,6 +40,13 @@ const GridSize: React.FC = () => {
     />
   ))
 
+  const linearSearchOptions = (
+    <>
+      <RepeatNumBtn />
+      <SelfOrganizeBtn />
+    </>
+  )
+
   return (
     <div className="d-flex justify-content-center mt-5">
       <div
@@ -44,8 +55,7 @@ const GridSize: React.FC = () => {
       >
         {optionList}
       </div>
-      <RepeatNumBtn />
-      <SelfOrganizeBtn />
+      {isLinearSearch && linearSearchOptions}
       <SortBtn />
     </div>
   )
