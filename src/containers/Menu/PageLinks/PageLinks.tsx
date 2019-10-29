@@ -24,3 +24,5 @@ const PageLinks: React.FC = () => (
 );
 
 export default PageLinks;
+
+// Block Routes when Searching for an Element

@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as actions from '../../../store/actions/index';
 
-const RepeatNumBtn: React.FC = () => {
+interface RepeatNumProps {
+  isLinearSearch: boolean
+}
+
+const RepeatNumBtn: React.FC<RepeatNumProps> = ({ isLinearSearch }) => {
   const { isSearching, sortGrid } = useSelector((state: any) => state);
   const dispatch = useDispatch();
 
   const changeHandler = () => {
-    if (!isSearching) {
+    if (isLinearSearch && !isSearching) {
       dispatch(actions.sortGrid(!sortGrid));
     }
   }
+
+  useEffect(() => {
+    if (!isSearching) {
+      if (!isLinearSearch) {
+        dispatch(actions.sortGrid(true));
+      } else {
+        dispatch(actions.sortGrid(false));
+      }
+    }
+  }, [isLinearSearch, isSearching, dispatch])
 
   return (
     <div
@@ -24,7 +38,7 @@ const RepeatNumBtn: React.FC = () => {
       >
         <input
           type="checkbox"
-          disabled={isSearching}
+          disabled={isSearching || !isLinearSearch}
         /> Sort Grid
       </label>
     </div>

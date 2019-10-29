@@ -60,3 +60,5 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
 }
 
 export default Search;
+
+// FIX - Warning about USEEFFECT

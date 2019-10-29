@@ -21,7 +21,7 @@ const GridOptions: React.FC<GridOptionsProps> = ({ isLinearSearch }) => {
     <div className="d-flex justify-content-center mt-5">
       <SizeOptions />
       {isLinearSearch && linearSearchOptions}
-      <SortBtn />
+      <SortBtn isLinearSearch={isLinearSearch}/>
     </div>
   )
 }
