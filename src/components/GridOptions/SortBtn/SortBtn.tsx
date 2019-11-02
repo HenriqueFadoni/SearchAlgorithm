@@ -18,14 +18,10 @@ const RepeatNumBtn: React.FC<RepeatNumProps> = ({ isLinearSearch }) => {
   }
 
   useEffect(() => {
-    if (!isSearching) {
-      if (!isLinearSearch) {
-        dispatch(actions.sortGrid(true));
-      } else {
-        dispatch(actions.sortGrid(false));
-      }
+    if (!isSearching && !isLinearSearch) {
+      dispatch(actions.sortGrid(true));
     }
-  }, [isLinearSearch, isSearching, dispatch])
+  }, [dispatch, isLinearSearch, isSearching])
 
   return (
     <div
@@ -39,7 +35,8 @@ const RepeatNumBtn: React.FC<RepeatNumProps> = ({ isLinearSearch }) => {
         <input
           type="checkbox"
           disabled={isSearching || !isLinearSearch}
-        /> Sort Grid
+        />
+        Sort Grid
       </label>
     </div>
   )

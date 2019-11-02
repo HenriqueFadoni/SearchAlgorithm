@@ -9,6 +9,7 @@ import * as actions from '../../store/actions/index';
 import ResetBtn from './ResetBtn/ResetBtn';
 import SearchInput from './SearchInput/SearchInput';
 
+// Interfaces
 interface SearchProps {
   searchType: string
 }
@@ -26,17 +27,17 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
   const dispatch = useDispatch();
   const debouncedSearchTerm = useDebounce(searchTerm);
 
-  // Debouncing and Search 
-  const searchDispatch = () => {
-    dispatch(actions.searchElement(debouncedSearchTerm));
-    if (searchType === 'linear') dispatch(actions.linearSearch());
-  }
+  const isRepeating = (grid.length - 1 === currentIndex && repeatItems);
+  const isUnique = (valueFound.length > 0 && !repeatItems);
 
+  // Debounce and Search
   useEffect(() => {
     if (debouncedSearchTerm) {
-      searchDispatch();
+      dispatch(actions.searchElement(debouncedSearchTerm));
+      if (searchType === 'linear') dispatch(actions.linearSearch());
+      if (searchType === 'binary') dispatch(actions.binarySearch());
     }
-  }, [debouncedSearchTerm]);
+  }, [dispatch, searchType, debouncedSearchTerm]);
 
   // Reset Search
   const searchReset = () => {
@@ -53,12 +54,10 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
       />
       <ResetBtn
         searchReset={searchReset}
-        isDisable={(grid.length - 1 === currentIndex && repeatItems)|| (valueFound.length > 0 && !repeatItems)}
+        isDisable={isRepeating || isUnique}
       />
     </div>
   )
 }
 
 export default Search;
-
-// FIX - Warning about USEEFFECT

@@ -11,3 +11,7 @@ export {
   linearSearch,
   linearSearchReset
 } from './linearSearchAction';
+
+export {
+  binarySearch
+} from './binarySearchAction';

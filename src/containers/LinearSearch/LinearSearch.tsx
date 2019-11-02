@@ -13,7 +13,7 @@ const LinearSearch: React.FC = () => {
     <div className="page">
       <Title title='Linear Search' />
       <GridOptions isLinearSearch={true} />
-      <GridDisplay />
+      <GridDisplay searchType='linear' />
       {gridSize && <Search searchType='linear' />}
     </div>
   )

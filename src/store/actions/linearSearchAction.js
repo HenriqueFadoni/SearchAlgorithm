@@ -34,7 +34,7 @@ const findValue = ({ i, dispatch, grid, searchingNum }) => {
 }
 
 export const linearSearch = () => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { grid, searchingNum, repeatItems } = getState();
 
     if (repeatItems) {

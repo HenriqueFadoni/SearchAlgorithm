@@ -13,7 +13,7 @@ const BiSearch: React.FC = () => {
     <div>
       <Title title='Binary Search' />
       <GridOptions isLinearSearch={false} />
-      <GridDisplay />
+      <GridDisplay searchType='binary' />
       {gridSize && <Search searchType='binary' />}
     </div>
   )
