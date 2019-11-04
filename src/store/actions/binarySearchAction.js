@@ -20,12 +20,14 @@ const currentValue = currentIndexes => {
 
 const findValue = (dispatch, index, guess, searchingNum, mid, unvalidIndexes) => {
   setTimeout(() => {
-    dispatch(currentValue(unvalidIndexes));
     if (guess === searchingNum) {
       dispatch(valueFound(mid))
+    } else {
+      dispatch(currentValue(unvalidIndexes));
     }
   }, 250 * index)
 }
+
 
 export const binarySearch = () => {
   return (dispatch, getState) => {
@@ -38,27 +40,32 @@ export const binarySearch = () => {
       const middleValue = grid[middleIndex];
       const unvalidIndexes = [];
 
-      if (searchingNum < middleValue) {
-        higherValue = middleIndex - 1; // meio - fim
-        unvalidIndexes.push(higherValue);
-
-        grid.forEach((_, index) => {
-          if (index > higherValue) {
-            unvalidIndexes.push(index)
-          }
-        });
+      if (searchingNum === middleValue) {
+        lowerValue = higherValue + 1;
+        findValue(dispatch, i, middleValue, searchingNum, middleIndex, unvalidIndexes);
       } else {
-        lowerValue = middleIndex + 1; // meio - inicio
-        unvalidIndexes.push(lowerValue);
-
-        grid.forEach((_, index) => {
-          if (index < lowerValue) {
-            unvalidIndexes.push(index)
-          }
-        });
+        if (searchingNum < middleValue) {
+          higherValue = middleIndex - 1; // meio - fim
+          unvalidIndexes.push(middleIndex);
+  
+          grid.forEach((_, index) => {
+            if (index > higherValue) {
+              unvalidIndexes.push(index)
+            }
+          });
+        } else {
+          lowerValue = middleIndex + 1; // meio - inicio
+          unvalidIndexes.push(middleIndex);
+  
+          grid.forEach((_, index) => {
+            if (index < lowerValue) {
+              unvalidIndexes.push(index)
+            }
+          });
+        }
+  
+        findValue(dispatch, i, middleValue, searchingNum, middleIndex, unvalidIndexes);
       }
-
-      findValue(dispatch, i, middleValue, searchingNum, middleIndex, unvalidIndexes);
     }
   }
 }
