@@ -19,3 +19,14 @@ export const binarySearchValueFound = (state, { payload }) => {
     ]
   }
 }
+
+// Reset Binary Search
+export const binarySearchReset = state => {
+  return {
+    ...state,
+    searchingNum: null,
+    currentIndexes: [],
+    valueFound: [],
+    isSearching: false
+  }
+}

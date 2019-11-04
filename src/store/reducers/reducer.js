@@ -17,7 +17,8 @@ import {
 
 import {
   binarySearchCurrentValue,
-  binarySearchValueFound
+  binarySearchValueFound,
+  binarySearchReset
 } from './binarySearchReducer';
 
 const initialState = {
@@ -50,6 +51,7 @@ const reducer = (state = initialState, action) => {
     // Binary Search
     case actionTypes.BINARY_SEARCH_CURRENT_VALUE: return binarySearchCurrentValue(state, action);
     case actionTypes.BINARY_SEARCH_VALUE_FOUND: return binarySearchValueFound(state, action);
+    case actionTypes.BINARY_SEARCH_RESET: return binarySearchReset(state);
     default: return state;
   }
 }

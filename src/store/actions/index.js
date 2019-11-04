@@ -13,5 +13,6 @@ export {
 } from './linearSearchAction';
 
 export {
-  binarySearch
+  binarySearch,
+  binarySearchReset
 } from './binarySearchAction';

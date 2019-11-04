@@ -42,6 +42,7 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
   // Reset Search
   const searchReset = () => {
     if (searchType === 'linear') dispatch(actions.linearSearchReset());
+    if (searchType === 'binary') dispatch(actions.binarySearchReset());
     setSearchTerm('');
   }
 

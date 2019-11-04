@@ -62,3 +62,10 @@ export const binarySearch = () => {
     }
   }
 }
+
+// Reseting the Binary Search Algorithm
+export const binarySearchReset = () => {
+  return {
+    type: actionTypes.BINARY_SEARCH_RESET
+  }
+}
