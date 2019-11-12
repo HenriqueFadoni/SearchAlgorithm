@@ -46,7 +46,6 @@ export const binarySearch = () => {
       } else {
         if (searchingNum < middleValue) {
           higherValue = middleIndex - 1; // meio - fim
-          unvalidIndexes.push(middleIndex);
   
           grid.forEach((_, index) => {
             if (index > higherValue) {
@@ -55,15 +54,13 @@ export const binarySearch = () => {
           });
         } else {
           lowerValue = middleIndex + 1; // meio - inicio
-          unvalidIndexes.push(middleIndex);
-  
+          
           grid.forEach((_, index) => {
             if (index < lowerValue) {
               unvalidIndexes.push(index)
             }
           });
         }
-  
         findValue(dispatch, i, middleValue, searchingNum, middleIndex, unvalidIndexes);
       }
     }

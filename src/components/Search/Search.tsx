@@ -19,6 +19,7 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
   const {
     grid,
     currentIndex,
+    currentIndexes,
     isSearching,
     repeatItems,
     valueFound
@@ -27,8 +28,9 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
   const dispatch = useDispatch();
   const debouncedSearchTerm = useDebounce(searchTerm);
 
-  const isRepeating = (grid.length - 1 === currentIndex && repeatItems);
-  const isUnique = (valueFound.length > 0 && !repeatItems);
+  const isSearchFinished = (grid.length - 1 === currentIndex) || (grid.length === currentIndexes.length);
+  const isRepeating = (isSearchFinished && repeatItems);
+  const isUnique = ((valueFound.length > 0 || isSearchFinished) && !repeatItems);
 
   // Debounce and Search
   useEffect(() => {
@@ -62,3 +64,4 @@ const Search: React.FC<SearchProps> = ({ searchType }) => {
 }
 
 export default Search;
+// Number not found => RESET BTN NOT DISABLED - BUG

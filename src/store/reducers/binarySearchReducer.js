@@ -1,10 +1,16 @@
 // Current Values
 export const binarySearchCurrentValue = (state, { payload }) => {
+  const pastIndexes = payload.currentIndexes.map(index => {
+    if (!state.currentIndexes.includes(index)) {
+      return index
+    }
+  }).filter(i => i !== undefined);
+
   return {
     ...state,
     currentIndexes: [
       ...state.currentIndexes,
-      ...payload.currentIndexes
+      ...pastIndexes
     ]
   }
 }
